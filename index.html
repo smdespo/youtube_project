@@ -53,7 +53,7 @@
 <span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-xl pointer-events-none transition-colors">
               link
             </span>
-<input class="w-full bg-surface-container-lowest/80 text-on-surface placeholder:text-on-surface-variant/40 rounded-lg pl-11 pr-space-md py-3.5 font-body-md text-body-md focus:outline-none focus:bg-surface-container-lowest transition-all" id="stream-source-input" placeholder="https://youtube.com/watch?v=..." required="" type="url" value="https://youtube.com/watch?v=dQw4w9WgXcQ"/>
+<input class="w-full bg-surface-container-lowest/80 text-on-surface placeholder:text-on-surface-variant/40 rounded-lg pl-11 pr-space-md py-3.5 font-body-md text-body-md focus:outline-none focus:bg-surface-container-lowest transition-all" id="stream-source-input" placeholder="Paste your link..." required="" type="url"/>
 </div>
 <button class="flex items-center justify-center space-x-space-xs px-space-lg py-3.5 rounded-lg bg-primary-container hover:bg-tertiary-container text-on-primary-container font-label-md text-label-md transition-all duration-200 transform active:scale-[0.98] shadow-[0_4px_24px_rgba(255,84,78,0.3)] hover:shadow-[0_4px_30px_rgba(255,84,78,0.5)] cursor-pointer" id="btn-generate" type="submit">
 <span>Generate Link</span>
@@ -61,21 +61,21 @@
 </button>
 </form>
 <!-- 4. Output Card -->
-<div class="mt-space-md pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm bg-surface-container-lowest/70 rounded-lg p-space-md transition-all duration-300" id="output-wrapper">
+<div class="mt-space-md pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm bg-surface-container-lowest/70 rounded-lg p-space-md transition-all duration-300" id="output-wrapper" style="display: none;">
 <div class="flex items-center space-x-space-sm w-full md:w-auto overflow-hidden">
 <span class="material-symbols-outlined text-primary text-xl flex-shrink-0">
               lock_open_right
             </span>
 <div class="flex flex-col min-w-0">
 <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant/70">Your Ad-Free Video</span>
-<a class="font-body-md text-body-md font-semibold text-primary hover:underline" href="https://www.yout-ube.com/watch?v=dQw4w9WgXcQ" id="output-url-text" rel="noopener noreferrer" target="_blank">
+<a class="font-body-md text-body-md font-semibold text-primary hover:underline" href="#" id="output-url-text" rel="noopener noreferrer" target="_blank">
                 Click here
               </a>
 </div>
 </div>
 <!-- Output Actions -->
 <div class="flex items-center w-full md:w-auto justify-end">
-<a class="inline-flex items-center justify-center space-x-1 px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all active:scale-95 cursor-pointer" href="https://www.yout-ube.com/watch?v=dQw4w9WgXcQ" id="btn-open-stream" rel="noopener noreferrer" target="_blank">
+<a class="inline-flex items-center justify-center space-x-1 px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all active:scale-95 cursor-pointer" href="#" id="btn-open-stream" rel="noopener noreferrer" target="_blank">
 <span>Open Stream</span>
 <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
@@ -159,6 +159,7 @@
         
         outputLabel.href = generatedUrl.toString();
         openBtn.href = generatedUrl.toString();
+        document.getElementById('output-wrapper').style.display = '';
 
         // Visual feedback on generate
         const btn = document.getElementById('btn-generate');
